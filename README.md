@@ -18,16 +18,22 @@ PwingMagic is a Minecraft plugin designed to enhance gameplay by introducing wan
   - Assigned spells
   - Active spell (marked as `(Active)`)
   - Bound player (if applicable)
+- **Spell Cycling**: Players can cycle through active spells on their wand by right-clicking.
 
 ### Spells
 - **Customizable Spells**: Define spells in `spells.yml` with:
   - Mana cost
+  - Base damage
+  - Optional permission requirements
   - Lore for description
   - Customizable lore line template for wand display
 - **Spell Management**:
   - Grant or remove spells from players.
   - List learned spells for a player.
   - Add or remove spells from wands dynamically.
+- **Permission and Command Integration**:
+  - Spells can be cast if learned, even without permissions.
+  - Permissions can restrict spell casting unless explicitly granted.
 
 ### Stats
 - **MMO Stats Integration**:
@@ -36,7 +42,7 @@ PwingMagic is a Minecraft plugin designed to enhance gameplay by introducing wan
 
 ### Commands
 - `/testskill <skillName>`: Test casting a MythicMobs skill.
-- `/grantspell <player> <spell>`: Grant a player access to a spell.
+- `/grantspell <player> <spell> <level>`: Grant a player access to a spell with a specific level.
 - `/removespell <player> <spell>`: Remove a spell from a player.
 - `/listspells <player>`: List all spells a player has learned.
 - `/wand <player> <capacity>`: Give a player a basic wand with a specified capacity.
@@ -113,18 +119,24 @@ Define spells with customizable properties.
 spells:
   Fireball:
     mana-cost: 10
+    base-damage: 15
+    permission: "pwingmagic.spell.fireball" # Requires this permission or must be granted
     lore:
       - "§6Fireball"
       - "§7Unleash a fiery explosion."
     lore-line-template: "&c{spell-name}"
   Heal:
     mana-cost: 8
+    base-damage: 0
+    # No permission defined; can cast if learned
     lore:
       - "§6Heal"
       - "§7Restore health to yourself or allies."
     lore-line-template: "&a{spell-name}"
   LightningStrike:
     mana-cost: 12
+    base-damage: 20
+    permission: "pwingmagic.spell.lightningstrike"
     lore:
       - "§6Lightning Strike"
       - "§7Call down a bolt of lightning."

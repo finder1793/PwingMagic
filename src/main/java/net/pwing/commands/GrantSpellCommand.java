@@ -11,8 +11,8 @@ public class GrantSpellCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length < 2) {
-            sender.sendMessage("§cUsage: /grantspell <player> <spell>");
+        if (args.length < 3) {
+            sender.sendMessage("§cUsage: /grantspell <player> <spell> <level>");
             return true;
         }
 
@@ -23,9 +23,18 @@ public class GrantSpellCommand implements CommandExecutor {
         }
 
         String spell = args[1];
-        PwingMagic.getInstance().getSpellDataManager().addSpell(target, spell);
-        sender.sendMessage("§aGranted spell '" + spell + "' to " + target.getName() + ".");
-        target.sendMessage("§aYou have learned the spell: " + spell + "!");
+        int level;
+        try {
+            level = Integer.parseInt(args[2]);
+        } catch (NumberFormatException e) {
+            sender.sendMessage("§cInvalid level. Must be a number.");
+            return true;
+        }
+
+        // Grant the spell even if the player lacks permission
+        PwingMagic.getInstance().getSpellDataManager().addSpell(target, spell, level);
+        sender.sendMessage("§aGranted spell '" + spell + "' (Level " + level + ") to " + target.getName() + ".");
+        target.sendMessage("§aYou have learned the spell: " + spell + " (Level " + level + ")!");
         return true;
     }
 }

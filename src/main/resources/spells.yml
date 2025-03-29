@@ -1,20 +1,26 @@
-# Generalized spell list with lore and mana costs.
+# Generalized spell list with lore, mana costs, base damage, and permissions.
 
 spells:
   Fireball:
     mana-cost: 10
+    base-damage: 15
+    permission: "pwingmagic.spell.fireball" # Requires this permission or must be granted
     lore:
       - "§6Fireball"
       - "§7Unleash a fiery explosion."
     lore-line-template: "&c{spell-name}"
   Heal:
     mana-cost: 8
+    base-damage: 0
+    # No permission defined; can cast if learned
     lore:
       - "§6Heal"
       - "§7Restore health to yourself or allies."
     lore-line-template: "&a{spell-name}"
   LightningStrike:
     mana-cost: 12
+    base-damage: 20
+    permission: "pwingmagic.spell.lightningstrike"
     lore:
       - "§6Lightning Strike"
       - "§7Call down a bolt of lightning."

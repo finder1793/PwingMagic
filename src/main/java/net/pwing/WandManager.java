@@ -18,7 +18,7 @@ public class WandManager {
 
     private final Map<String, WandData> wands = new HashMap<>();
     private final String statFormat;
-    private final String activeSpellFormat;
+    private final String activeSpellFormat; // Declare the missing variable
     private final String boundWandFormat;
 
     public WandManager(File dataFolder) {
@@ -32,7 +32,7 @@ public class WandManager {
 
         // Load lore formats from config.yml
         statFormat = pluginConfig.getString("lore-format.stat", "&7{stat-name}: &a+{stat-value} {stat-unit}");
-        activeSpellFormat = pluginConfig.getString("lore-format.active-spell", "&6(Active)");
+        activeSpellFormat = pluginConfig.getString("lore-format.active-spell", "&6(Active)"); // Initialize the variable
         boundWandFormat = pluginConfig.getString("lore-format.bound-wand", "&7Bound to: &e{player-name}");
 
         for (String wandName : config.getConfigurationSection("wands").getKeys(false)) {

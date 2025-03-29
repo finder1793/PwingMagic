@@ -20,9 +20,11 @@ public class SpellListManager {
         FileConfiguration config = YamlConfiguration.loadConfiguration(spellFile);
         for (String spellName : config.getConfigurationSection("spells").getKeys(false)) {
             int manaCost = config.getInt("spells." + spellName + ".mana-cost");
+            double baseDamage = config.getDouble("spells." + spellName + ".base-damage", 0);
+            String permission = config.getString("spells." + spellName + ".permission", null);
             List<String> lore = config.getStringList("spells." + spellName + ".lore");
             String loreLineTemplate = config.getString("spells." + spellName + ".lore-line-template", "&7{spell-name}");
-            spells.put(spellName, new SpellData(manaCost, lore, loreLineTemplate));
+            spells.put(spellName, new SpellData(manaCost, baseDamage, permission, lore, loreLineTemplate));
         }
     }
 
@@ -41,25 +43,39 @@ public class SpellListManager {
 
         for (String spellName : config.getConfigurationSection("spells").getKeys(false)) {
             int manaCost = config.getInt("spells." + spellName + ".mana-cost");
+            double baseDamage = config.getDouble("spells." + spellName + ".base-damage", 0);
+            String permission = config.getString("spells." + spellName + ".permission", null);
             List<String> lore = config.getStringList("spells." + spellName + ".lore");
             String loreLineTemplate = config.getString("spells." + spellName + ".lore-line-template", "&7{spell-name}");
-            spells.put(spellName, new SpellData(manaCost, lore, loreLineTemplate));
+            spells.put(spellName, new SpellData(manaCost, baseDamage, permission, lore, loreLineTemplate));
         }
     }
 
     public static class SpellData {
         private final int manaCost;
+        private final double baseDamage;
+        private final String permission;
         private final List<String> lore;
         private final String loreLineTemplate;
 
-        public SpellData(int manaCost, List<String> lore, String loreLineTemplate) {
+        public SpellData(int manaCost, double baseDamage, String permission, List<String> lore, String loreLineTemplate) {
             this.manaCost = manaCost;
+            this.baseDamage = baseDamage;
+            this.permission = permission;
             this.lore = lore;
             this.loreLineTemplate = loreLineTemplate;
         }
 
         public int getManaCost() {
             return manaCost;
+        }
+
+        public double getBaseDamage() {
+            return baseDamage;
+        }
+
+        public String getPermission() {
+            return permission;
         }
 
         public List<String> getLore() {

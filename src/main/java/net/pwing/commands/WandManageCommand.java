@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class WandManageCommand implements CommandExecutor {
 
@@ -56,8 +57,8 @@ public class WandManageCommand implements CommandExecutor {
                     return true;
                 }
 
-                List<String> learnedSpells = PwingMagic.getInstance().getSpellDataManager().getLearnedSpells(player);
-                if (!learnedSpells.contains(spellName)) {
+                Map<String, Integer> learnedSpells = PwingMagic.getInstance().getSpellDataManager().getLearnedSpells(player);
+                if (!learnedSpells.containsKey(spellName)) {
                     player.sendMessage(ChatColor.RED + "You have not learned the spell: " + spellName);
                     return true;
                 }
