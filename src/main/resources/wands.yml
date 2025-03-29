@@ -1,0 +1,28 @@
+wands:
+  FireWand:
+    display-name: "§6Fire Wand"
+    capacity: 5
+    custom-model-data: 1001
+    stats:
+      ATTACK_DAMAGE: 10
+      CRITICAL_STRIKE_CHANCE: 5
+    bind-to-player: false
+    lore:
+      - "§7A wand imbued with the power of fire."
+      - "§7Capacity: §e5"
+    flavor-lore:
+      - "§8Forged in the heart of a volcano."
+      - "§8Its flames never extinguish."
+  HealWand:
+    display-name: "§6Heal Wand"
+    capacity: 3
+    custom-model-data: 1002
+    stats:
+      HEALING: 15
+    bind-to-player: true
+    lore:
+      - "§7A wand that heals the wielder."
+      - "§7Capacity: §e3"
+    flavor-lore:
+      - "§8Blessed by ancient clerics."
+      - "§8A symbol of hope and restoration."

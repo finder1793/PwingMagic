@@ -1,0 +1,20 @@
+# Generalized configuration for PwingMagic.
+
+features:
+  enable-wands: true
+  enable-spell-management: true
+  enable-mana-integration: true
+
+permissions:
+  require-permissions-for-spells: true
+
+stats:
+  default:
+    DAMAGE: 0
+    CRIT_CHANCE: 0
+    HEALING: 0
+
+lore-format:
+  stat: "&7{stat-name}: &a+{stat-value} {stat-unit}"
+  active-spell: "&6(Active)"
+  bound-wand: "&7Bound to: &e{player-name}"

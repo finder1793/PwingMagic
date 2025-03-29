@@ -1,0 +1,36 @@
+name: PwingMagic
+main: net.pwing.PwingMagic
+version: 1.0
+api-version: 1.20
+author: finder17
+description: A basic Minecraft plugin named PwingMagic.
+depend:
+  - MythicLib
+  - MMOCore
+commands:
+  testskill:
+    description: Test casting a MythicMobs skill.
+    usage: /testskill <skillName>
+  grantspell:
+    description: Grant a player access to a spell.
+    usage: /grantspell <player> <spell>
+  removespell:
+    description: Remove a spell from a player.
+    usage: /removespell <player> <spell>
+  listspells:
+    description: List all spells a player has learned.
+    usage: /listspells <player>
+  wand:
+    description: Give a player a wand.
+    usage: /wand <player> <capacity>
+  wandmanage:
+    description: Manage spells on your wand.
+    usage: /wandmanage <add|remove|list> <spell>
+  reload:
+    description: Reload the plugin configuration and spell list.
+    usage: /pwingmagic reload
+    permission: pwingmagic.admin.reload
+  givewand:
+    description: Give a wand to a player.
+    usage: /givewand <player> <wandName>
+    permission: pwingmagic.admin.givewand

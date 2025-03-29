@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'net.pwing'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc-repo'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        name = 'mythiclib-repo'
+        url = 'https://nexus.phoenixdevt.fr/repository/maven-public/'
+    }
+}
+
+dependencies {
+    implementation 'io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT'
+    implementation 'io.lumine:MythicLib-dist:1.6.2-SNAPSHOT' 
+    implementation 'net.Indyuce:MMOCore-API:1.13.1-SNAPSHOT' 
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}

@@ -1,0 +1,16 @@
+# Gradle build files
+/build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE-specific files
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
